@@ -23,18 +23,21 @@ function getCart() {
 function addToCart(item) {
   var price = Math.random() * 100;
   Math.floor(price);
-  cart.push({item: price})
+  cart.push({[item]:price})
   console.log(`${item} has been added to your cart.`)
   return cart;
 }
 
 function viewCart() {
+  var cartItem = [];
   if (cart.length === 0) {
     console.log("Your shopping cart is empty.")
+  } else {
+    for (var cartItem in cart) {
+      
+      console.log(cartItem);
+      console.log(`In your cart, you have ${cartItem} at $${cart[cartItem]}`);
+    }
   }
-  var cartItem = Object.keys(cart);
-  for (var i = 0, l = cartItem.length; i < l; i++) {
-    console.log(`In your cart, you have socks at $${cart[cartItem[i]]}, puppy at $${cart[cartItem[i]]}, iPhone at $${cart[cartItem[i]]}. `)
-  }
-
 }
+viewCart();
