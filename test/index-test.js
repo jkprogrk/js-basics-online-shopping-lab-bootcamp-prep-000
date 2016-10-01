@@ -128,3 +128,24 @@ function hasItem(c, item) {
 
   return false
 }
+
+
+function removeFromCart(item) {
+  for (var item in cart) {
+  if (!cart.hasOwnProperty(item)) { //if cart does NOT have item
+      //console.log(`That item is not in your cart.`);  -- seems like this should go here??
+    } else if (cart.hasOwnProperty(item)) { //if cart does have item
+      cart.pop(item);
+    } return cart;
+  } console.log(`That item is not in your cart.`);
+}
+
+
+function placeOrder(cardNumber) {
+    if (typeof cardNumber !== 'undefined') { //if typeof variable, cardNumber, exists (AKA isn't undefined)
+      console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
+      cart.length = 0;
+    } else {
+      console.log(`We don't have a credit card on file for you to place your order.`);
+  }
+}
